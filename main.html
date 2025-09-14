@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
 	<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			
+			// Convert to numbers
+			arr = arr.map(Number);
+
+			if (arr.length < 2) return -Infinity;
+
+			// Remove duplicates
+			let unique = [...new Set(arr)];
+			if (unique.length < 2) return -Infinity;
+
+			// Sort descending
+			unique.sort((a, b) => b - a);
+
+			return unique[1];
 		}
 
 		function Main() {
@@ -24,9 +32,6 @@
 		Main();
 	</script>
 
-    <script type="text/javascript" src="./script.js">
-</script>
-
+	<script type="text/javascript" src="./script.js"></script>
 </body>
-
 </html>
